@@ -205,6 +205,10 @@ _Please remember to update the config file (as shown in step 9) after you use th
 with open('../config.yaml', 'w') as file:
     yaml.dump(config, file, default_flow_style=False)
 ```
+### 10. Run the app:
+```python
+streamlit run test.py
+```
 
 ## Credits
 - Mohamed Abdou for the highly versatile cookie manager in [Extra-Streamlit-Components](https://github.com/Mohamed-512/Extra-Streamlit-Components).
