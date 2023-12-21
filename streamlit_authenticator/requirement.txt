@@ -1,0 +1,5 @@
+pip install streamlit
+pip install langchain
+pip install sentence-transformers
+pip install chromadb
+pip install passlib
