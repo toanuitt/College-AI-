@@ -3,7 +3,7 @@ import yaml
 from passlib.hash import pbkdf2_sha256
 import random
 import string
-from app import home
+from app import home,search_semantic
 
 # Load configuration from YAML file
 with open('config.yaml') as file:
@@ -25,19 +25,31 @@ def save_config():
 def main():
     st.title("College AI Advisor")
 
-    menu = ["Login", "Home", "Register", "Change Password", "Forgot Password", "Logout"]
+    menu = ["Login", "Home","Search", "Register", "Change Password", "Forgot Password", "Logout"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == "Home":
         st.subheader("Home Page")
         if st.session_state.current_user:
+            st.subheader("Welcome ",st.session_state.current_user)
             home()
         else:
-            st.warning("Please login to change password.")   
+            st.warning("Please login to use the function")   
     elif choice == "Login":
-        login()
+        if st.session_state.current_user:
+            st.write("You has successfully signed in")
+        else:
+            login()
+    elif choice == "Search":
+        if st.session_state.current_user:
+            search_semantic()
+        else:
+            st.warning("Please login to use the function") 
     elif choice == "Register":
-        register()
+        if st.session_state.current_user:
+            st.warning("Please log out before registering")
+        else:
+            register()
     elif choice == "Change Password":
         if st.session_state.current_user:
             change_password()
@@ -46,7 +58,11 @@ def main():
     elif choice == "Forgot Password":
         forgot_password()
     elif choice == "Logout":
-        logout()
+        if st.session_state.current_user:
+            logout()
+        else:
+            st.warning("You are not in any account")
+       
 
 def login():
     st.subheader("Login")
@@ -87,6 +103,7 @@ def forgot_password():
 
 def logout():
     st.session_state.current_user = None
+    st.write("Your account has exited")
 
 def login_user(username, password):
     if username in config['users']:
