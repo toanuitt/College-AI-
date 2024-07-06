@@ -9,7 +9,7 @@ from langchain.embeddings import GooglePalmEmbeddings
 def home():
     st.subheader("Chatbot")
     # Set your Google Palm API key
-    palm_api = "AIzaSyAWFYtQuHNIha4v2-vmDJPVopM-1exlMF0"
+    palm_api = "Your API key"
 
     # Initialize SentenceTransformer embeddings
     embeddings = SentenceTransformerEmbeddings(model_name="all-mpnet-base-v2")
