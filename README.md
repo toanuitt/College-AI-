@@ -21,9 +21,13 @@ Welcome to the AI College Chatbot project! This repository contains the code and
 Make sure you have Python version **>=3.9.0** installed. The required packages are:
 
 -streamlit
+
 -langchain
+
 -sentence-transformers
+
 -chromadb
+
 -passlib
 
 ## Installation
