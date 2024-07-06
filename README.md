@@ -9,7 +9,6 @@ Welcome to the AI College Chatbot project! This repository contains the code and
 - [Contributing](#contributing)
 - [License](#license)
 
-
 ## Features
 - Answer general questions about the college
 - Provide information on courses and programs
@@ -51,6 +50,7 @@ To get started with the project, follow these steps:
 
 ## Usage
 change API key in chatbot.py
+
 To run the application, execute the following command in your terminal:
 ```bash
 $ python chatbot.py
